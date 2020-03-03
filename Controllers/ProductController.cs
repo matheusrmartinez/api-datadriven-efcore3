@@ -56,20 +56,18 @@ public class ProductController : ControllerBase
         return Ok(Product);
     }
 
-
     [HttpPost]
     [Route("")]
-    public async Task<ActionResult<List<Product>>> Post(
-        [FromBody]Product model,
-        [FromServices] DataContext dataContext
+    public async Task<ActionResult<Product>> Post(
+        [FromServices] DataContext dataContext,
+        [FromBody]Product model
         )
     {
         if (ModelState.IsValid)
         {
             dataContext.Products.Add(model);
             await dataContext.SaveChangesAsync();
-            return Ok(model);
-
+            return model;
         }
         else
         {

@@ -14,11 +14,7 @@ namespace Shop.Models
         public string Title { get; set; }
 
         [MaxLength(1024, ErrorMessage = "Este campo deve conter no máximo até 1024 caracteres. ")]
-        public string Description { get; set; }
-
-        [Required(ErrorMessage = "Este campo é obrigatório")]
-        [Range(1, int.MinValue, ErrorMessage = "O preço deve ser maior que zero.")]
-
+        public string Description { get; set; }        
         public decimal Price { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
