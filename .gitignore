@@ -1,6 +1,7 @@
 appsettings.Development.json
 appsettings.json
 Properties/launchSettings.json
+bin
 bin/Debug/netcoreapp3.1/Microsoft.Bcl.AsyncInterfaces.dll
 bin/Debug/netcoreapp3.1/Microsoft.Bcl.HashCode.dll
 bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -61,3 +62,6 @@ bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/sni.dll
 bin/Debug/netcoreapp3.1/runtimes/win-x64/native/sni.dll
 bin/Debug/netcoreapp3.1/runtimes/win-x86/native/sni.dll
 obj/Shop.csproj.EntityFrameworkCore.targets
+.vscode
+obj
+

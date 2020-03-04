@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Shop.Data;
@@ -9,11 +10,15 @@ using Shop.Models;
 // Endpoint => URL
 // http://localhost:5000
 // https://localhost:5001/categories
-[Route("categories")]
+[Route("v1/categories")]
 public class CategoryController : ControllerBase
 {
     [HttpGet]
     [Route("")]
+    [AllowAnonymous]
+    [ResponseCache(VaryByHeader = "User-Agent", Location =ResponseCacheLocation.Any, Duration = 30)]
+    // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]  
+    // a linha comentada acima funciona para limitar o cache caso a opção services.AddResponseCaching()(Arquivo Startup.cs) esteja habilitada.
     public async Task<ActionResult<List<Category>>> Get(
         [FromServices] DataContext dataContext
         )
@@ -24,6 +29,7 @@ public class CategoryController : ControllerBase
 
     [HttpGet]
     [Route("{id:int}")]
+    [AllowAnonymous]
     public async Task<ActionResult<Category>> GetById(
         int id,
         [FromServices] DataContext dataContext
@@ -35,6 +41,7 @@ public class CategoryController : ControllerBase
 
     [HttpPost]
     [Route("")]
+    [Authorize(Roles = "employee")]
     public async Task<ActionResult<List<Category>>> Post(
         [FromBody]Category model,
         [FromServices] DataContext dataContext
@@ -57,6 +64,7 @@ public class CategoryController : ControllerBase
 
     [HttpPut]
     [Route("{id:int}")]
+    [Authorize(Roles = "employee")]
     public async Task<ActionResult<List<Category>>> Put
                     (int id,
                     [FromBody] Category model,
@@ -90,6 +98,7 @@ public class CategoryController : ControllerBase
 
     [HttpDelete]
     [Route("{id:int}")]
+    [Authorize(Roles = "employee")]
     public async Task<ActionResult<List<Category>>> Delete(
         int id,
         [FromServices] DataContext dataContext
