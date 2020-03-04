@@ -1,5 +1,3 @@
-appsettings.Development.json
-appsettings.json
 Properties/launchSettings.json
 bin
 bin/Debug/netcoreapp3.1/Microsoft.Bcl.AsyncInterfaces.dll
@@ -44,7 +42,6 @@ obj/Debug/netcoreapp3.1/Shop.pdb
 obj/Debug/netcoreapp3.1/Shop.RazorTargetAssemblyInfo.cache
 obj/Debug/netcoreapp3.1/staticwebassets/Shop.StaticWebAssets.Manifest.cache
 obj/Debug/netcoreapp3.1/staticwebassets/Shop.StaticWebAssets.xml
-Shop.csproj
 bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
 bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll
 bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Relational.dll
