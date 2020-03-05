@@ -52,9 +52,8 @@ namespace Shop
                 };
             });
 
-            // services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
-            services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
-            services.AddScoped<DataContext, DataContext>();
+            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+            // services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
 
             services.AddSwaggerGen( c => 
             {
@@ -86,7 +85,7 @@ namespace Shop
             app.UseAuthentication();
 
             app.UseAuthorization();
-            
+
             // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
             app.UseEndpoints(endpoints =>
             {
